@@ -5,6 +5,18 @@ export interface CompanySearch {
   exchangeFullName: string;
   exchange: string;
 }
+export interface CompanyProfile {
+  symbol: string;
+  companyName: string;
+  industry: string;
+  description: string;
+  ceo: string;
+  sector: string;
+  website: string;
+  image: string;
+  marketCap: number;
+  exchange: string;
+}
 
 export interface CompanyProfile {
   symbol: string;

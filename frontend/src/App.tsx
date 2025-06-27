@@ -4,6 +4,7 @@ import CardList from './Components/CardList/CardList';
 import Search from './Components/Search/Search';
 import { CompanySearch } from './api';
 import SearchCompanies from './Pages/apis';
+import { Outlet, useLocation } from 'react-router-dom';
 
 function App() {
 

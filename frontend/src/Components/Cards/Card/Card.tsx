@@ -1,6 +1,7 @@
 import React, { JSX } from 'react'
 import "./Card.css"
 import { CompanySearch } from '../../../api';
+import { Link } from 'react-router-dom';
 
 
 interface props {
@@ -18,7 +19,10 @@ const Card: React.FC<props> = ({id,searchResult}: props) : JSX.Element => {
       <h1>{searchResult.name}</h1>
       <h1>{searchResult.symbol}</h1>
       <h1>{searchResult.exchange}</h1>
-    </div>
+<Link to="/detail">
+  <button className="button">Detalleee</button>
+</Link>
+</div>
   )
 }
 
