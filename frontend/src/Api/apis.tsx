@@ -35,7 +35,7 @@ const searchCompanies = async (query: string) => {
 }
 const detaCompany  = async (query: string ) =>{
     try{
-        const data = await axios.get<CompanyProfile>(`https://financialmodelingprep.com/api/v3/profile/{symbol}&apikey=${process.env.REACT_APP_API_KEY}`);
+        const data = await axios.get<CompanyProfile>(`https://financialmodelingprep.com/api/v3/profile/${query}&apikey=${process.env.REACT_APP_API_KEY}`);
 
         return data;
     }
