@@ -1,26 +1,28 @@
 ﻿import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CompanyProfile } from '../../../api';
-import detaCompany from '../../../Pages/apis'; // tu función de fetch con axios
+import {dataCompany } from '../../../Api/apis';
 
 const Detail: React.FC = () => {
   const { symbol } = useParams<{ symbol: string }>();
   const [data, setData] = useState<CompanyProfile | null>(null);
   const [error, setError] = useState<string>("");
 
-  useEffect(() => {
-    if (symbol) {
-      detaCompany(symbol).then((res) => {
-        if (Array.isArray(res)) {
-          setData(res[0]);
-        } else {
-          setError("No se pudo cargar el perfil.");
-        }
-      });
-    }
-  }, [symbol]);
+useEffect(() => {
+  if (symbol) {
+    dataCompany(symbol).then((res) => {
+      if (Array.isArray(res) && res.length > 0) {
+        setData(res[0]);
+        setError("");
+      } else {
+        setError("No se encontró perfil para este símbolo.");
+      }
+    });
+  }
+}, [symbol]);
 
-  if (error) return <h2 style={{ color: 'red' }}>{error}</h2>;
+
+  if (error) return <h2 style={{ color: 'yellow', textAlign:'center' }}>{error}</h2>;
   if (!data) return <h2>Cargando...</h2>;
 
   return (

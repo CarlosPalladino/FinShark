@@ -7,10 +7,7 @@ import { Link } from 'react-router-dom';
 interface props {
 id : string;
 searchResult : CompanySearch;
-
 }
-
-
 
 const Card: React.FC<props> = ({id,searchResult}: props) : JSX.Element => {
   return (
@@ -19,8 +16,8 @@ const Card: React.FC<props> = ({id,searchResult}: props) : JSX.Element => {
       <h1>{searchResult.name}</h1>
       <h1>{searchResult.symbol}</h1>
       <h1>{searchResult.exchange}</h1>
-<Link to="/detail">
-  <button className="button">Detalleee</button>
+<Link to={`/detail/${searchResult.symbol}`}> 
+ <button className="button">Detalleee</button>
 </Link>
 </div>
   )
